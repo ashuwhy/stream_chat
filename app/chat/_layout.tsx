@@ -1,9 +1,11 @@
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import { useEffect, useRef } from "react";
 import { StreamChat } from "stream-chat";
 import { OverlayProvider, Chat } from "stream-chat-expo";
 import Constants from "expo-constants";
 import { useAuth } from "../../src/context/auth";
+import { Entypo } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
 // Use Constants.expoConfig.extra to get your key.
 const API_KEY = Constants.expoConfig?.extra?.streamApiKey;
@@ -69,7 +71,11 @@ export default function ChatLayout() {
         <OverlayProvider>
             <Chat client={clientRef.current}>
                 <Stack>
-                    <Stack.Screen name="index" options={{ title: "Messages" }} />
+                    <Stack.Screen name="index" options={{ title: "Messages", headerRight: () => (
+                        <TouchableOpacity onPress={() => router.push('/chat/newChannel')}>
+                            <Entypo name="plus" size={24} color="royalblue" />
+                        </TouchableOpacity>
+                    ) }} />
                 </Stack>
             </Chat>
         </OverlayProvider>

@@ -4,9 +4,21 @@ import { ChannelList, Channel, MessageList, MessageInput } from 'stream-chat-exp
 import { Channel as ChannelType } from 'stream-chat';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
+import { useAuth } from '../../src/context/auth';
 
 const ChatScreen = () => {
     const router = useRouter();
+    const { user } = useAuth();
+
+    const isPrivate = {
+        type: 'messaging',
+        members: {
+            $in: [user.id.toString()],
+        },
+    }
+    const isPublic = {
+        type: 'livestream',
+    }
     // const [channel, setChannel] = useState<ChannelType>();
 
     return (
@@ -20,7 +32,12 @@ const ChatScreen = () => {
                 <ChannelList onSelect={(channel) => setChannel(channel)} />
             )} */}
 
-            <ChannelList onSelect={(channel) => router.push(`/chat/channel/${channel.id}`)} />
+            <ChannelList 
+                filters={{
+                    $or: [isPrivate, isPublic],
+                }}
+                onSelect={(channel) => router.push(`/chat/channel/${channel.id}`)} 
+            />
 
         </GestureHandlerRootView>
     );
