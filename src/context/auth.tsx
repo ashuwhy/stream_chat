@@ -6,6 +6,7 @@ export type User = {
   id: number;
   username: string;
   name: string;
+  streamToken: string;
 };
 
 type AuthContextType = {

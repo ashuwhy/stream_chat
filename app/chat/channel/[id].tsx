@@ -32,7 +32,7 @@ const ChannelScreen = () => {
 
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-            <Channel channel={channel}>
+            <Channel channel={channel} key={channel.id}>
                 <MessageList />
                 <MessageInput />
             </Channel>
