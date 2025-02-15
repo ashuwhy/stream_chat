@@ -25,8 +25,8 @@ export default function ChatLayout() {
             );
 
             // Create channel
-            const channel = client.channel('messaging', 'public', {
-                name: 'Test',
+            const channel = client.channel('livestream', 'public', {
+                name: 'Public',
                 image: 'https://i.imgur.com/fR9Jz14.png',
             });
             await channel.create();
