@@ -40,7 +40,7 @@ npm run android
 ```
 
 ## Project Structure
-.
+```
 ├── app/                      # Main application directory
 │   └── chat/                # Chat module directory
 │       ├── channel/         # Channel-related components
