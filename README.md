@@ -1,6 +1,6 @@
-# React Native App
+# Chat App
 
-A React Native mobile application project.
+A Stream Chat app built with React Native and Expo, just for fun.
 
 ## Prerequisites
 
@@ -16,8 +16,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ashuwhy/imessage.git
-cd imessage
+git clone https://github.com/ashuwhy/stream_chat.git
+cd stream_chat
 ```
 
 2. Install dependencies:
@@ -41,13 +41,17 @@ npm run android
 
 ## Project Structure
 .
-├── app/
-│ └── index.tsx
-├── App.tsx
-├── babel.config.js
-├── tsconfig.json
-├── app.json
-└── package.json
+├── app/                      # Main application directory
+│   └── chat/                # Chat module directory
+│       ├── channel/         # Channel-related components
+│       │   └── [id].tsx    # Dynamic channel page
+│       ├── index.tsx       # Chat home page
+│       └── _layout.tsx     # Layout component for chat module
+├── App.tsx                  # Root application component
+├── babel.config.js         # Babel configuration
+├── tsconfig.json           # TypeScript configuration
+├── app.json                # Expo configuration
+└── package.json            # Project dependencies and scripts
 ```
 
 ## Development
